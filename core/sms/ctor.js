@@ -5,5 +5,6 @@ module.exports = {
     await es.initIndex(`sms`);
     await es.initIndex(`sender`);
     await es.initIndex(`trash`);
+    // dd
   },
 };
