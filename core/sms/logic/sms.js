@@ -22,8 +22,8 @@ module.exports = {
       try {
         
         const doc = {
-          receiver:data.receiver,
-          sender:data.sender,
+          receiver:data.receiver.replace(/\D/g, ''),
+          sender:data.sender.replace(/\D/g, ''),
           time: moment().valueOf(),
           content:data.content,
           id: uuidv4().replace(/-/g, "")
@@ -66,7 +66,7 @@ module.exports = {
         // const arr = msg.split(`┇`);
         const arr = msg.split(`œ`);
         const type = arr[0];
-        const receiver = arr[1];
+        const receiver = arr[1].replace(/\D/g, '');
         const sender = arr[2];
         const time = arr[3];
         const content = arr[4];
@@ -134,7 +134,7 @@ module.exports = {
 
       if (keyword) {
         let condition = {};
-        condition["sender,receiver"] = keyword;
+        condition["sender,receiver"] = `*${keyword}*`;
         query = es.query(condition);
       }
       return await es.search(`sms`, query, sort, current, pageSize);
