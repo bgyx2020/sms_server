@@ -78,7 +78,7 @@ async function run() {
   await cors();
   await body();
   await route();
-  console.log(`启动完成 0.1`);
+  console.log(`启动完成 0.1:修复模糊手机号问题`);
 }
 
 run();
