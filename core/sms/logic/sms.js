@@ -17,7 +17,9 @@ function getCodeFromContent(text) {
 module.exports = {
   run: () => {
     event.sub(`sms.time`, async ({ data }) => {
-      return moment().valueOf()
+      return {
+        time:moment().valueOf()
+      }
     })
 
     event.sub(`sms.go`, async ({ data }) => {
